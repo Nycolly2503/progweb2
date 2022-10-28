@@ -1,0 +1,30 @@
+@import  url ( 'https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap' );
+
+corpo {
+    cor de fundo : azul oceano;
+    altura :  100 % ;
+    largura :  100 % ;
+    margem :  0px ; _
+}
+
+h1 ,  h2 ,  p {
+    cor : azul alice;
+    font-family :  'Fredoka One' , cursiva;
+}
+
+ol ,  li ,  um {
+    font-family :  'Segoe UI' , Tahoma , Geneva , Verdana , areal;
+    cor : azul claro;
+}
+
+h1 {
+    tamanho da fonte :  90 px ;
+}
+
+h2 {
+    tamanho da fonte :  60px ;
+}
+
+p {
+    tamanho da fonte :  20 px ;
+}

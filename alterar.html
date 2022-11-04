@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>metas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style id="estiloOculto">
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="withDB(carregaTarefas)">
+    <h1>Livros para surtar depois de ler </h1>
+    
+    <button id="mostraEscondeConcluidos">mostrar tudo</button>
+    <form action="">
+        <input type="text" id="barraDigitar" name="novaatividade" placeholder="Nova Atividade">
+        <input type="submit" value="Inserir">
+    </form>
+    <div id="lista"></div>
+    
+    <script type="text/javascript" src="altera.js"> </script>
+</body>
+</html>

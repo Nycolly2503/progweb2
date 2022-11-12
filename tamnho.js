@@ -1,44 +1,51 @@
-# progweb2
-let title
-let tam = 3
-
-for (let i = 1; i < 7; i++) {
-  title = document.querySelector(`h${i}`)
-  if (title != null) {
-    botao()
-    break
-  }
+document.addEventListener('DOMContentLoaded', procura);
+tam = 1;
+num = 1;
+function procura(){
+	encontra = document.querySelector(`h${num}`);
+	if(encontra != null){
+		botao();
+		tamanho(num);
+	} else if (encontra == null && num < 7) {	
+		num += 1;
+		procura();
+	}
 }
-
-
-function botao() {
-  const botaoMais = document.createElement(null)
-  botaoMais.innerHTML = `<button type='button' onclick="clicou('mais')" id='botao'>+</button>`
-
-  const botaoMenos = document.createElement(null)
-  botaoMenos.textContent = "-"
-  botaoMenos.innerHTML = `<button type='button' onclick="clicou('menos')" id='botao'>-</button>`
-
-  const br = document.createElement("br")
-
-  title.parentNode.insertBefore(br, title.nextSibling)
-  title.parentNode.insertBefore(botaoMenos, title.nextSibling)
-  title.parentNode.insertBefore(botaoMais, title.nextSibling)
-  
-  const botao = document.querySelectorAll('#botao')
-  for(let i = 0; i < 2; i++){
-    botao[i].style.borderRadius = '20px'
-    botao[i].style.width = '45px'
-    botao[1].style.marginLeft = '50px'
-  }
+function tamanho(){
+	texto = document.querySelector(`h${num}`);
+	texto.style.fontSize = `${tam}em`;
 }
-
-
-function clicou(btn) {
-  if (btn == "mais" && tam < 6) {
-    tam += 0.5
-  } else if(btn == 'menos' && tam > 1) {
-    tam -= 0.5
-  }
-  title.style.fontSize = `${tam}em`
+function botao(){
+	mais = document.createElement('button');
+	mais.innerHTML = "+";
+	mais.style.width = '4em';
+	mais.style.height = '4em';
+	mais.style.fontSize = '13px';
+	mais.style.color = 'white';
+	mais.style.backgroundColor = 'black';
+	mais.addEventListener('click', function () {
+		alteraTamanho('+');
+	});
+	menos = document.createElement('button');
+	menos.innerHTML = "-";
+	menos.style.width = '4em';
+	menos.style.height = '4em';
+	menos.style.fontSize = '13px';
+	menos.style.color = 'white';
+	menos.style.backgroundColor = 'black';
+	menos.addEventListener('click', function () {
+		alteraTamanho('-');
+	});
+	texto = document.querySelector(`h${num}`);
+	texto.after(mais);
+	texto.after(menos);
+}
+function alteraTamanho(sinal){
+	if(sinal == '+' && tam <= 10){
+		tam += 1;
+		tamanho();
+	} else if(sinal == '-' && tam > 1) {
+		tam -= 1;
+		tamanho();
+	}
 }

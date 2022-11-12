@@ -1,18 +1,17 @@
 document.querySelector("#ddd").addEventListener("change", buscaAPI);
-municipios = new Array();
-function buscaAPI(evento){fetch(`https://brasilapi.com.br/api/ddd/v1/${evento.target.value}`)
+cidades = new Array();
+function buscaAPI(acao){
+	fetch(`https://brasilapi.com.br/api/ddd/v1/${acao.target.value}`)
 	.then(res => res.json())
 	.then(dados => {
-		municipios = dados.cities;
-		cidades();
+		cidades = dados.cities;
+		listaCidades();
 	});
 }
-
-
-function cidades(){
-	lista = document.querySelector('ul');
+function listaCidades(){
+	lista = document.querySelector('ol');
 	lista.textContent = '';
-	municipios.forEach(cidade =>{
+	cidades.forEach(cidade =>{
 		item = document.createElement('li');
 		item.textContent = cidade;
 		lista.append(item);
